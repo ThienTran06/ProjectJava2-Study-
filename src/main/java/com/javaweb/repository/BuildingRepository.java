@@ -2,9 +2,9 @@ package com.javaweb.repository;
 
 import java.util.List;
 
-import com.javaweb.repository.entity.BuildingEntity;
+import com.javaweb.model.BuildingRecords;
+import com.javaweb.model.buildingSearchRequest;
 
 public interface BuildingRepository {
-List<BuildingEntity> findAll(String name,Integer District_Id);
-void DeleteByID(Integer id);
+List<BuildingRecords> findAll(buildingSearchRequest filter);
 }

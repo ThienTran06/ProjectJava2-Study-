@@ -5,14 +5,79 @@ public class BuildingDTO {
 	private Integer NumberOfBasement;
 	private String street;
 	private String ward;
-	private Integer District_Id;
+	private String District_Code;
+	private Double Rent_Price;
+	private String Manager_Name;
+	private String Manager_Phone;
+	private Double floor_Area;
+	private String rent_Area;
+	private Double service_Fee;
+	private Double broker_Fee;
+	private Double Free_Area;
+	private String Address;
 
-	public int getId() {
-		return District_Id;
+	public String getAddress() {
+		return Address;
 	}
 
-	public void setId(int id) {
-		this.District_Id = id;
+	public void setAddress(String address) {
+		Address = address;
+	}
+
+	public Double getFree_Area() {
+		return Free_Area;
+	}
+
+	public void setFree_Area(Double free_Area) {
+		Free_Area = free_Area;
+	}
+
+	public String getManager_Name() {
+		return Manager_Name;
+	}
+
+	public void setManager_Name(String manager_Name) {
+		Manager_Name = manager_Name;
+	}
+
+	public String getManager_Phone() {
+		return Manager_Phone;
+	}
+
+	public void setManager_Phone(String manager_Phone) {
+		Manager_Phone = manager_Phone;
+	}
+
+	public String getRent_Area() {
+		return rent_Area;
+	}
+
+	public void setRent_Area(String rent_Area) {
+		this.rent_Area = rent_Area;
+	}
+
+	public Double getService_Fee() {
+		return service_Fee;
+	}
+
+	public void setService_Fee(Double service_Fee) {
+		this.service_Fee = service_Fee;
+	}
+
+	public Double getBroker_Fee() {
+		return broker_Fee;
+	}
+
+	public void setBroker_Fee(Double broker_Fee) {
+		this.broker_Fee = broker_Fee;
+	}
+
+	public String getDistrict_Code() {
+		return District_Code;
+	}
+
+	public void setDistrict_Code(String district_Code) {
+		District_Code = district_Code;
 	}
 
 	public String getName() {
@@ -37,6 +102,22 @@ public class BuildingDTO {
 
 	public void setStreet(String Street) {
 		street = Street;
+	}
+
+	public Double getRent_Price() {
+		return Rent_Price;
+	}
+
+	public void setRent_Price(Double rent_Price) {
+		Rent_Price = rent_Price;
+	}
+
+	public Double getFloor_Area() {
+		return floor_Area;
+	}
+
+	public void setFloor_Area(Double floor_Area) {
+		this.floor_Area = floor_Area;
 	}
 
 	public String getWard() {
