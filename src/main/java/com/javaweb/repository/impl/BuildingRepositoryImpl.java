@@ -22,7 +22,10 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 	@Override
 	public List<BuildingRecords> findAll(buildingSearchRequest filter) {
 		
-		StringBuilder sql =new StringBuilder("SELECT DISTINCT b.* FROM building b ");
+		StringBuilder sql =new StringBuilder("SELECT DISTINCT b.*,");
+		sql.append("GROUP_CONCAT(r.Area ORDER BY r.Area SEPARATOR', ')AS rent_Areas, ");
+		sql.append("d.District_Code ");
+		sql.append("FROM building b ");
 		sql.append("LEFT JOIN rent_area r on r.Building_Id = b.Building_Id ");
 		sql.append("LEFT JOIN district d on d.District_Id=b.District_Id ");
 		sql.append("JOIN user_building ub on ub.Building_Id=b.Building_Id ");
@@ -42,6 +45,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		if(filter.getRent_Area_Start()!=null)sql.append("AND Area >="+filter.getRent_Area_Start()+" ");
 		if(filter.getRent_Area_End()!=null)sql.append("AND Area<="+filter.getRent_Area_End()+" ");
 		if(filter.getStaff_id()!=null)sql.append("AND User_Id="+filter.getStaff_id()+" ");
+		sql.append("GROUP BY b.Building_Id");
 		List<BuildingRecords> result = new ArrayList<>();
 		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 				Statement stmt = conn.createStatement();
@@ -52,7 +56,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 				buildingEntity.setStreet(rs.getString("street"));
 				buildingEntity.setWard(rs.getString("ward"));
 				buildingEntity.setNumberOfBasement(rs.getInt("NumberOfBasement"));
-				buildingEntity.setId(rs.getInt("District_Id"));
+				buildingEntity.setDistrict_Id(rs.getInt("District_Id"));
 				buildingEntity.setDirection(rs.getString("Direction"));
 				buildingEntity.setFloor_Area(rs.getDouble("Floor_Area"));
 				buildingEntity.setLevel(rs.getInt("Building_Level"));
@@ -61,10 +65,10 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 				buildingEntity.setRent_Price(rs.getDouble("Rent_Price"));
 				buildingEntity.setBroker_Fee(rs.getDouble("Broker_Fee"));
 				buildingEntity.setService_Fee(rs.getDouble("Service_Fee"));
-				buildingEntity.setFree_Area(rs.getDouble("RentFree_Area"));
+				buildingEntity.setRentFree_Area(rs.getDouble("RentFree_Area"));
 				String District_Code=rs.getString("District_Code");
-				String address=rs.getString("street")+","+rs.getString("ward")+','+rs.getString(District_Code);
-				BuildingRecords buildingrecords=new BuildingRecords(buildingEntity,District_Code,address);
+				String rent_Areas=rs.getString("rent_Areas");
+				BuildingRecords buildingrecords=new BuildingRecords(buildingEntity,District_Code,rent_Areas);
 				result.add(buildingrecords);
 			}
 		} catch (SQLException e) {

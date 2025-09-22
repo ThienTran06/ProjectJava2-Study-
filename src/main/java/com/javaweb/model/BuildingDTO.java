@@ -10,12 +10,44 @@ public class BuildingDTO {
 	private String Manager_Name;
 	private String Manager_Phone;
 	private Double floor_Area;
-	private String rent_Area;
+	private String rent_Areas;
 	private Double service_Fee;
 	private Double broker_Fee;
-	private Double Free_Area;
+	private Double RentFree_Area;
+	private Integer Level;
+	private String Direction;
 	private String Address;
+	public String getDirection() {
+		return Direction;
+	}
 
+	public void setDirection(String direction) {
+		Direction = direction;
+	}
+
+	public Integer getLevel() {
+		return Level;
+	}
+
+	public void setLevel(Integer level) {
+		Level = level;
+	}
+
+	public Double getRentFree_Area() {
+		return RentFree_Area;
+	}
+
+	public void setRentFree_Area(Double rentFree_Area) {
+		RentFree_Area = rentFree_Area;
+	}
+
+	public Integer getNumberOfBasement() {
+		return NumberOfBasement;
+	}
+
+	public void setNumberOfBasement(Integer numberOfBasement) {
+		NumberOfBasement = numberOfBasement;
+	}
 	public String getAddress() {
 		return Address;
 	}
@@ -23,15 +55,6 @@ public class BuildingDTO {
 	public void setAddress(String address) {
 		Address = address;
 	}
-
-	public Double getFree_Area() {
-		return Free_Area;
-	}
-
-	public void setFree_Area(Double free_Area) {
-		Free_Area = free_Area;
-	}
-
 	public String getManager_Name() {
 		return Manager_Name;
 	}
@@ -48,12 +71,12 @@ public class BuildingDTO {
 		Manager_Phone = manager_Phone;
 	}
 
-	public String getRent_Area() {
-		return rent_Area;
+	public String getRent_Areas() {
+		return rent_Areas;
 	}
 
-	public void setRent_Area(String rent_Area) {
-		this.rent_Area = rent_Area;
+	public void setRent_Areas(String rent_Areas) {
+		this.rent_Areas = rent_Areas;
 	}
 
 	public Double getService_Fee() {
@@ -88,13 +111,6 @@ public class BuildingDTO {
 		name = Name;
 	}
 
-	public Integer getNumber() {
-		return NumberOfBasement;
-	}
-
-	public void setNumber(Integer numberOfBasement) {
-		NumberOfBasement = numberOfBasement;
-	}
 
 	public String getStreet() {
 		return street;

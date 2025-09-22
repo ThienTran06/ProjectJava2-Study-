@@ -14,7 +14,7 @@ private String Manager_Phone;
 private Double rent_Price;
 private Double Broker_Fee;
 private Double Service_Fee;
-private Double Free_Area;
+private Double RentFree_Area;
 private Double rent_Area;
 public Double getRent_Area() {
 	return rent_Area;
@@ -22,11 +22,17 @@ public Double getRent_Area() {
 public void setRent_Area(Double rent_Area) {
 	this.rent_Area = rent_Area;
 }
-public Double getFree_Area() {
-	return Free_Area;
+public Integer getDistrict_Id() {
+	return District_Id;
 }
-public void setFree_Area(Double free_Area) {
-	Free_Area = free_Area;
+public void setDistrict_Id(Integer district_Id) {
+	District_Id = district_Id;
+}
+public Double getRentFree_Area() {
+	return RentFree_Area;
+}
+public void setRentFree_Area(Double rentFree_Area) {
+	RentFree_Area = rentFree_Area;
 }
 public Double getFloor_Area() {
 	return floor_Area;
@@ -76,12 +82,6 @@ public String getManager_Phone() {
 }
 public void setManager_Phone(String manager_Phone) {
 	Manager_Phone = manager_Phone;
-}
-public Integer getId() {
-	return District_Id;
-}
-public void setId(Integer id) {
-	this.District_Id = id;
 }
 public String getName() {
 	return name;

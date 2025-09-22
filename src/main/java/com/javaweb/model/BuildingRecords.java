@@ -6,6 +6,15 @@ public class BuildingRecords {
 	BuildingEntity buildingEntity;
 	String District_Code;
 	String Address;
+	String rent_Areas;
+	public String getRent_Areas() {
+		return rent_Areas;
+	}
+
+	public void setRent_Areas(String rent_Areas) {
+		this.rent_Areas = rent_Areas;
+	}
+
 	public String getAddress() {
 		return Address;
 	}
@@ -14,10 +23,10 @@ public class BuildingRecords {
 		Address = address;
 	}
 
-	public BuildingRecords(BuildingEntity buildingEntity,String districtCode,String Address) {
+	public BuildingRecords(BuildingEntity buildingEntity,String districtCode,String rent_Areas) {
 		this.buildingEntity=buildingEntity;
 		this.District_Code=districtCode;
-		this.Address=Address;
+		this.rent_Areas=rent_Areas;
 	}
 
 	public BuildingEntity getBuildingEntity() {

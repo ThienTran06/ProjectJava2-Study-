@@ -23,9 +23,9 @@ public class BuildingServiceImpl implements BuildingService{
 		for(BuildingRecords item:buildingRecords) {
 			BuildingDTO buildingDTO=new BuildingDTO();
 			BuildingEntity entity =item.getBuildingEntity();
-			String address = item.getAddress();
+			String address=entity.getStreet()+","+"phường "+entity.getWard()+','+"quận "+item.getDistrict_Code();
 			buildingDTO.setName(entity.getName());
-			buildingDTO.setNumber(entity.getNumberOfBasement());
+			buildingDTO.setNumberOfBasement(entity.getNumberOfBasement());
 			buildingDTO.setFloor_Area(entity.getFloor_Area());
 			buildingDTO.setManager_Name(entity.getManager_Name());
 			buildingDTO.setManager_Phone(entity.getManager_Phone());
@@ -33,7 +33,10 @@ public class BuildingServiceImpl implements BuildingService{
 			buildingDTO.setBroker_Fee(entity.getBroker_Fee());
 			buildingDTO.setService_Fee(entity.getService_Fee());
 			buildingDTO.setAddress(address);
-			buildingDTO.setFree_Area(entity.getFree_Area());
+			buildingDTO.setRentFree_Area(entity.getRentFree_Area());
+			buildingDTO.setLevel(entity.getLevel());
+			buildingDTO.setDirection(entity.getDirection());
+			buildingDTO.setRent_Areas(item.getRent_Areas());
 			result.add(buildingDTO);
 		}
 		return result;

@@ -6,6 +6,10 @@ import java.util.List;
 public class Error_Response {
 	private String Error;
 	private List<String> Detail = new ArrayList<String>();
+//	public Error_Response(String error, List<String> details) {
+//	    this.Error = error;
+//	    this.Detail = details;
+//	}
 
 	public String getError() {
 		return Error;

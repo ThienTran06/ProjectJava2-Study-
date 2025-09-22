@@ -13,7 +13,7 @@ import com.javaweb.service.BuildingService;
 public class Building {
 	@Autowired
 	private BuildingService buildingService ;
-	@GetMapping(value = "/api/building/")
+	@GetMapping(value = "/api/buildings/")
 	public List<BuildingDTO> getBuilding(buildingSearchRequest request) {
 		List<BuildingDTO> res=buildingService.findAll(request);
 		return res;
