@@ -28,7 +28,7 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		sql.append("FROM building b ");
 		sql.append("LEFT JOIN rent_area r on r.Building_Id = b.Building_Id ");
 		sql.append("LEFT JOIN district d on d.District_Id=b.District_Id ");
-		sql.append("JOIN user_building ub on ub.Building_Id=b.Building_Id ");
+		sql.append(" LEFT JOIN user_building ub on ub.Building_Id=b.Building_Id ");
 		sql.append("WHERE 1 = 1 ");
 		if(filter.getName()!=null&&!filter.getName().equals(""))sql.append("AND name like '%"+filter.getName()+"%' ");
 		if(filter.getDistrict_Id()!=null)sql.append("AND District_Id ="+filter.getDistrict_Id()+" ");
